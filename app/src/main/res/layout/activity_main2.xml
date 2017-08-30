@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.charu.alarmc.Main2Activity"
+    android:weightSum="1"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set Alarm For"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal|top"
+
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="15dp"
+        >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Select Date :"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:padding="10dp"
+        />
+        <EditText
+            android:id="@+id/editText2DD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_marginLeft="21dp"
+            android:ems="2"
+            android:hint="DD"
+            android:maxLength="2"
+            android:inputType="number"
+
+            />
+        <EditText
+            android:id="@+id/editText2MM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_marginLeft="21dp"
+            android:ems="2"
+            android:hint="MM"
+            android:maxLength="2"
+            android:inputType="number"
+
+            />
+        <EditText
+            android:id="@+id/editText2YY"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_marginLeft="21dp"
+            android:ems="4"
+            android:hint="YYYY"
+            android:maxLength="4"
+            android:inputType="number" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="15dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="next days : "
+            android:textSize="20sp"
+            />
+
+        <Button
+            android:id="@+id/Button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            />
+        <Button
+            android:id="@+id/Button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2"
+            />
+        <Button
+            android:id="@+id/Button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Set Time :"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:padding="10dp"
+            />
+        <EditText
+            android:id="@+id/editTextHour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_marginLeft="21dp"
+            android:ems="3"
+            android:hint="Hour"
+            android:maxLength="2"
+            android:inputType="number"
+
+            />
+        <EditText
+            android:id="@+id/editTextMin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_marginLeft="21dp"
+            android:ems="2"
+            android:hint="Min"
+            android:maxLength="2"
+            android:inputType="number"
+
+            />
+        <EditText
+            android:id="@+id/editTextSec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_marginLeft="21dp"
+            android:ems="2"
+            android:hint="Sec"
+            android:maxLength="4"
+            android:inputType="number" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        >
+
+        <Button
+            android:id="@+id/ButtonSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+            android:padding="15dp"
+
+        />
+        <Button
+            android:id="@+id/ButtonRest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reset"
+            android:padding="15dp"
+
+
+            />
+    </LinearLayout>
+
+</LinearLayout>
