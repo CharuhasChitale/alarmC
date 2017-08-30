@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Date;
 
@@ -119,48 +120,44 @@ public class Main2Activity extends AppCompatActivity {
                 String hour = ho.getText().toString();
                 String min = minutes.getText().toString();
                 String sec = se.getText().toString();
-                int da = Integer.parseInt(day);
-                int mo =Integer.parseInt(mon);
-                int yy = Integer.parseInt(year);
-                int h = Integer.parseInt(hour);
-               int mi = Integer.parseInt(min);
-                int s = Integer.parseInt(sec);
-                if((da<=0 || da>31) || day.length()==0)
-                {
-                    d.requestFocus();
-                    d.setError("PLEASE ENTER VALID DAY");
 
-                }
-                else if((mo<=0 || mo>12) || mon.length()==0)
+                if(day.length()==0 ||  mon.length()==0 || year.length()==0 || hour.length()==0 ||min.length()==0 || sec.length()==0)
                 {
-                    m.requestFocus();
-                    m.setError("PLEASE ENTER VALID MONTH");
+                    Toast.makeText(Main2Activity.this, "Enter details",
+                            Toast.LENGTH_LONG).show();
                 }
-                else if(yy<=0 || year.length()==0)
-                {
-                    y.requestFocus();
-                    y.setError("PLEASE ENTER VALID YEAR");
+
+                    int da = Integer.parseInt(day);
+                    int mo = Integer.parseInt(mon);
+                    int yy = Integer.parseInt(year);
+                    int h = Integer.parseInt(hour);
+                    int mi = Integer.parseInt(min);
+                    int s = Integer.parseInt(sec);
+                    if ((da <= 0 || da > 31) || day.length() == 0) {
+                        d.requestFocus();
+                        d.setError("PLEASE ENTER VALID DAY");
+
+                    } else if ((mo <= 0 || mo > 12) || mon.length() == 0) {
+                        m.requestFocus();
+                        m.setError("PLEASE ENTER VALID MONTH");
+                    } else if (yy <= 0 || year.length() == 0) {
+                        y.requestFocus();
+                        y.setError("PLEASE ENTER VALID YEAR");
+                    } else if ((h <= 0 || h > 12) || hour.length() == 0) {
+                        ho.requestFocus();
+                        ho.setError("PLEASE ENTER VALID HOUR");
+                    } else if ((mi < 0 || mi > 60) || min.length() == 0) {
+                        minutes.requestFocus();
+                        minutes.setError("PLEASE ENTER VALID MIN");
+                    } else if ((s <0 || s > 60) || sec.length() == 0) {
+                        se.requestFocus();
+                        se.setError("PLEASE ENTER VALID SEC");
+                    } else {
+                        Intent i = new Intent(Main2Activity.this,
+                                Main3Activity.class);
+                        startActivity(i);
+                    }
                 }
-                else if((h<=0 || h>12) || hour.length()==0)
-                {
-                    ho.requestFocus();
-                    ho.setError("PLEASE ENTER VALID HOUR");
-                }
-                else if((mi<=0 || mi>60)|| min.length()==0)
-                {
-                    minutes.requestFocus();
-                    minutes.setError("PLEASE ENTER VALID MIN");
-                }
-                else if((s<=0 || s>60)|| sec.length()==0)
-                {
-                    se.requestFocus();
-                    se.setError("PLEASE ENTER VALID SEC");
-                }
-                else {
-                Intent i = new Intent(Main2Activity.this,
-                            Main3Activity.class);
-                    startActivity(i); }
-            }
         });
-    }
+         }
 }

@@ -3,15 +3,20 @@ package com.example.charu.alarmc;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+
+
 public class MainActivity extends AppCompatActivity {
 
-
+    private static Tracker mTracker;
     EditText name,email,age,dd,mm,yy,des;
     TextView agetextview;
     Button next;
@@ -22,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        AnalyticsApplication application = (AnalyticsApplication) getApplication();
+        mTracker = application.getDefaultTracker();
         name = (EditText) findViewById(R.id.editTextName);
         email = (EditText) findViewById(R.id.editTextEmail);
         dd = (EditText) findViewById(R.id.editTextDD);
@@ -34,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
         next=(Button) findViewById(R.id.button_submit);
 
         next.setOnClickListener(new View.OnClickListener() {
+            public static final String TAG = "";
+
             @Override
             public void onClick(View v) {
                  Name= name.getText().toString();
@@ -93,7 +101,9 @@ public class MainActivity extends AppCompatActivity {
 
                 }
                 else
-                {
+                {   Log.i(TAG, "Setting screen name: " + name);
+                    mTracker.setScreenName("Image~" + name);
+                    mTracker.send(new HitBuilders.ScreenViewBuilder().build());
                     Toast.makeText(MainActivity.this,"Validation Successful",Toast.LENGTH_LONG).show();
                     Intent i = new Intent(MainActivity.this,
                             Main2Activity.class);
