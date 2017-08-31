@@ -13,11 +13,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+
 import java.util.Date;
 
 public class Main2Activity extends AppCompatActivity {
 
-
+    private Tracker mTracker;
 
    EditText d,m,y,ho,minutes,se;
     int yy,mm,dd,min,sec,hour;
@@ -29,6 +32,8 @@ public class Main2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
+        AnalyticsApplication application = (AnalyticsApplication) getApplication();
+        mTracker = application.getDefaultTracker();
 
         d=  (EditText) findViewById(R.id.editText2DD);
         m=  (EditText) findViewById(R.id.editText2MM);
@@ -153,6 +158,7 @@ public class Main2Activity extends AppCompatActivity {
                         se.requestFocus();
                         se.setError("PLEASE ENTER VALID SEC");
                     } else {
+                        mTracker.send(new HitBuilders.EventBuilder().setCategory("Action").setAction("submitted").build());
                         Intent i = new Intent(Main2Activity.this,
                                 Main3Activity.class);
                         startActivity(i);
@@ -160,4 +166,12 @@ public class Main2Activity extends AppCompatActivity {
                 }
         });
          }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mTracker.setScreenName("AlarmScreen");
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
+
+    }
 }

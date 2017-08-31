@@ -3,7 +3,6 @@ package com.example.charu.alarmc;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,7 +15,7 @@ import com.google.android.gms.analytics.Tracker;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static Tracker mTracker;
+    private  Tracker mTracker;
     EditText name,email,age,dd,mm,yy,des;
     TextView agetextview;
     Button next;
@@ -40,10 +39,12 @@ public class MainActivity extends AppCompatActivity {
         next=(Button) findViewById(R.id.button_submit);
 
         next.setOnClickListener(new View.OnClickListener() {
-            public static final String TAG = "";
+
 
             @Override
             public void onClick(View v) {
+
+                mTracker.send(new HitBuilders.EventBuilder().setCategory("Action").setAction("clicked").build());
                  Name= name.getText().toString();
                  Email= email.getText().toString().trim();
                  DD= dd.getText().toString();
@@ -101,9 +102,8 @@ public class MainActivity extends AppCompatActivity {
 
                 }
                 else
-                {   Log.i(TAG, "Setting screen name: " + name);
-                    mTracker.setScreenName("Image~" + name);
-                    mTracker.send(new HitBuilders.ScreenViewBuilder().build());
+                {
+                    mTracker.send(new HitBuilders.EventBuilder().setCategory("Action").setAction("submitted").build());
                     Toast.makeText(MainActivity.this,"Validation Successful",Toast.LENGTH_LONG).show();
                     Intent i = new Intent(MainActivity.this,
                             Main2Activity.class);
@@ -116,4 +116,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mTracker.setScreenName("FormScreen");
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
+    }
 }
