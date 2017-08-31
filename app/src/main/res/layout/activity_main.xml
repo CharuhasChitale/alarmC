@@ -169,7 +169,7 @@
 
         <EditText
             android:id="@+id/editTextDes"
-            android:layout_width="350dp"
+            android:layout_width="300dp"
             android:layout_height="90dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"

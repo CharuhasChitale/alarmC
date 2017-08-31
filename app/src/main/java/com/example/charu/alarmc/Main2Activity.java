@@ -84,6 +84,7 @@ public class Main2Activity extends AppCompatActivity {
             public void onClick(View v) {
                 d.setText("1");
                 m.setText("9");
+                mTracker.send(new HitBuilders.EventBuilder().setCategory("Action").setAction("B1Clicked").build());
             }
         });
         b2.setOnClickListener(new View.OnClickListener() {
@@ -91,6 +92,7 @@ public class Main2Activity extends AppCompatActivity {
             public void onClick(View v) {
                 d.setText("2");
                 m.setText("9");
+                mTracker.send(new HitBuilders.EventBuilder().setCategory("Action").setAction("B2Clicked").build());
             }
         });
         b3.setOnClickListener(new View.OnClickListener() {
@@ -98,6 +100,7 @@ public class Main2Activity extends AppCompatActivity {
             public void onClick(View v) {
                 d.setText("3");
                 m.setText("9");
+                mTracker.send(new HitBuilders.EventBuilder().setCategory("Action").setAction("B1Clicked").build());
             }
         });
 

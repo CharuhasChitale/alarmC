@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+
                 mTracker.send(new HitBuilders.EventBuilder().setCategory("Action").setAction("clicked").build());
                  Name= name.getText().toString();
                  Email= email.getText().toString().trim();
@@ -56,26 +57,7 @@ public class MainActivity extends AppCompatActivity {
                 int m =Integer.parseInt(MM);
                 int y = Integer.parseInt(YY);
                 int a = Integer.parseInt(age.getText().toString());
-
-                if((d<=0 || d>31) || DD.length()==0)
-                {
-                    dd.requestFocus();
-                    dd.setError("ENTER VALID DAY");
-
-                }
-                else if((m<=0 || m>12) || MM.length()==0)
-                {
-                    mm.requestFocus();
-                    mm.setError("ENTER VALID MONTH");
-
-                }
-                else if( YY.length()==0)
-                {
-                    mm.requestFocus();
-                    mm.setError("ENTER YEAR");
-
-                }
-                else if(Name.length()==0)
+                if(Name.length()==0)
                 {
                     name.requestFocus();
                     name.setError("FIELD CANNOT BE EMPTY");
@@ -95,6 +77,25 @@ public class MainActivity extends AppCompatActivity {
                     email.requestFocus();
                     email.setError("ENTER Valid Email ID");
                 }
+                else if((d<=0 || d>31) || DD.length()==0)
+                {
+                    dd.requestFocus();
+                    dd.setError("ENTER VALID DAY");
+
+                }
+                else if((m<=0 || m>12) || MM.length()==0)
+                {
+                    mm.requestFocus();
+                    mm.setError("ENTER VALID MONTH");
+
+                }
+                else if( YY.length()==0)
+                {
+                    mm.requestFocus();
+                    mm.setError("ENTER YEAR");
+
+                }
+
                 else if( Age.length()<0 && a<100)
                 {
                     age.requestFocus();
