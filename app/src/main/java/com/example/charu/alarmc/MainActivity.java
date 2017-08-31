@@ -26,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        AnalyticsApplication application = (AnalyticsApplication) getApplication();
-        mTracker = application.getDefaultTracker();
+            AnalyticsApplication application = (AnalyticsApplication) getApplication();
+            mTracker = application.getDefaultTracker();
         name = (EditText) findViewById(R.id.editTextName);
         email = (EditText) findViewById(R.id.editTextEmail);
         dd = (EditText) findViewById(R.id.editTextDD);
